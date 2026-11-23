@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dandori.hibitool.com/sitemap.xml

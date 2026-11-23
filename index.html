@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="google-adsense-account" content="ca-pub-3965836277553422">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3965836277553422" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>今日やる3つ・あと何日・記念日・連絡リマインダー｜今日の段取り</title>
+<meta name="description" content="今日やることを3つだけ決めて、締め切りやイベントまで「あと何日」、誕生日・記念日、しばらく連絡していない人をまとめて確認できる1画面の段取り帳。終わらなかったことは翌日に持ち越せます。無料・登録不要、データはこの端末の中だけ。">
+<meta property="og:title" content="今日の段取り｜今日の3つ・カウントダウン・記念日・連絡リマインダー">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#7a3e2a">
+<link rel="canonical" href="https://dandori.hibitool.com/">
+<meta property="og:url" content="https://dandori.hibitool.com/">
+<meta property="og:image" content="https://dandori.hibitool.com/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="段取り">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4efe8;--paper:#fffcf7;--ink:#2a211c;--sub:#6e6259;--line:#ddd2c4;--brown:#7a3e2a;--gold:#d9a72b;--red:#b23a2c;--green:#3d7a52;--blue:#2f6b9a}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic",system-ui,sans-serif;font-weight:500;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{background:var(--brown);color:#fff}
+header.top .wrap{display:flex;align-items:center;gap:10px;padding-top:12px;padding-bottom:12px}
+header.top svg{width:36px;height:36px;flex:none}
+header.top h1{margin:0;font-size:20px;font-weight:900;letter-spacing:.04em;margin-right:auto}
+header.top .d{font-size:15px;font-weight:700}
+button{font:inherit;cursor:pointer}
+input,select{font:inherit;font-size:16px;color:var(--ink)}
+.btn{border:1px solid #b8a99a;background:#fff;color:var(--ink);padding:6px 12px;border-radius:4px;font-size:14px}
+.btn.main{background:var(--brown);border-color:var(--brown);color:#fff;font-weight:700}
+.btn.sm{padding:3px 10px;font-size:13px}
+.btn.link{border:0;background:none;color:var(--sub);text-decoration:underline;padding:2px 4px;font-size:13px}
+.lead{font-size:14px;color:var(--sub);margin:14px 0 0}
+.summary{margin-top:14px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:4px;font-size:15px;display:flex;flex-wrap:wrap;gap:4px 18px}
+.summary b{color:var(--gold)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px}
+.card.wide{grid-column:1/-1}
+h2{font-size:17px;margin:0 0 10px;display:flex;align-items:baseline;gap:8px}
+h2 small{font-size:12px;color:var(--sub);font-weight:500}
+h2 .r{margin-left:auto}
+/* 今日の3つ */
+.three{list-style:none;margin:0;padding:0;counter-reset:n}
+.three li{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.three li:first-child{border-top:0}
+.three li::before{counter-increment:n;content:counter(n);flex:none;width:28px;height:28px;border-radius:50%;background:var(--brown);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+.three li.done::before{content:"✓";background:var(--green)}
+.three input[type=text]{flex:1;border:0;border-bottom:1px dashed var(--line);background:transparent;padding:4px 2px;font-size:17px}
+.three li.done input[type=text]{text-decoration:line-through;color:var(--sub)}
+.three input[type=checkbox]{width:22px;height:22px;flex:none}
+.carry{margin-top:10px;font-size:13px;background:#fbf1d8;border:1px solid #ecd9a0;padding:8px 10px;border-radius:4px}
+.allDone{margin-top:10px;font-weight:700;color:var(--green)}
+/* 一覧 */
+.items{list-style:none;margin:0;padding:0}
+.items li{display:grid;grid-template-columns:5.6em 1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.items li:first-child{border-top:0}
+.items .left{text-align:center;font-weight:900;border-radius:3px;padding:2px 0;background:#efe6da;font-size:14px}
+.items .left.today{background:var(--red);color:#fff}
+.items .left.soon{background:var(--gold);color:#fff}
+.items .sub{display:block;font-size:12px;color:var(--sub)}
+.items .empty{display:block;color:var(--sub);font-size:14px;border:0}
+.form{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.form input,.form select{padding:6px 8px;border:1px solid #c9bcae;border-radius:4px;background:#fff}
+.form input[type=text]{flex:1 1 150px}
+.hide{display:none!important}
+.small{font-size:12px;color:var(--sub)}
+.msg{font-size:13px;color:var(--green);margin-left:6px}
+section.read{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:4px 18px 12px;margin:20px 0}
+section.read dt{font-weight:700;margin-top:12px}
+section.read dd{margin:2px 0 0;color:var(--sub);font-size:14px}
+footer{padding:20px 0 40px;font-size:12px;color:var(--sub);text-align:center}
+footer a{color:var(--sub)}
+
+.pbox{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:6px 16px 14px;margin-top:16px}
+.pbox h2{margin:10px 0 4px}
+.pbox p{margin:4px 0;font-size:14px}
+.prow{display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:14px}
+.prow select{font:inherit;font-size:16px;padding:5px 8px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink)}
+.pbtn{font:inherit;font-size:14px;padding:8px 16px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);cursor:pointer}
+.pbtn.main{background:var(--brown);border-color:var(--brown);color:#fff;font-weight:700}
+.pmsg{color:var(--sub);font-size:13px!important;min-height:1em}
+.pios{font-size:13px;background:#fff6dc;border:1px solid #ecd9a0;padding:8px 12px;border-radius:4px;margin-top:10px}
+.hide{display:none!important}
+</style>
+<!--FAQ--><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "なぜ「3つ」だけなの？", "acceptedAnswer": {"@type": "Answer", "text": "やることを全部並べると、どれから手をつけるか迷って疲れてしまいます。今日かならず終わらせたいことを3つに絞ると、終わったときの達成感も大きく、毎日続けやすくなります。"}}, {"@type": "Question", "name": "終わらなかったことはどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "翌日に開くと「昨日の残り」が表示され、ボタン1つで今日の3つに持ち越せます。"}}, {"@type": "Question", "name": "誕生日の「あと何日」は毎年続きますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。記念日・誕生日は毎年くる日として登録され、過ぎると自動で来年までの日数に変わります。生まれ年や始まった年を入れると年齢や「〇周年」も表示します。"}}, {"@type": "Question", "name": "データはどこに保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "この端末のブラウザの中だけです。ブラウザのデータを消すと消えるため、ときどきバックアップを保存してください。"}}]}</script><!--/FAQ-->
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 20l5 5 9-10M14 34l5 5 9-10" stroke="#f4d27a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 22h16M34 36h16M14 50h36" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+  <h1>今日の段取り</h1><span class="d" id="today"></span>
+</div></header>
+
+<main class="wrap">
+  <p class="lead">今日やることは3つだけ。締め切りやイベントまでの日数、近づいている誕生日・記念日、しばらく連絡していない人を、毎朝ひと目で確認できます。</p>
+  <div class="summary" id="summary"></div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>今日の3つ <small>これだけはやる</small></h2>
+      <ul class="three" id="three"></ul>
+      <div id="carry"></div>
+    </div>
+
+    <div class="card">
+      <h2>カウントダウン <small>締め切り・予定</small></h2>
+      <ul class="items" id="cd"></ul>
+      <div class="form">
+        <input type="text" id="cdName" placeholder="例：資格試験、旅行、提出日" maxlength="30">
+        <input type="date" id="cdDate">
+        <button class="btn main" id="cdAdd">追加</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>記念日・誕生日 <small>毎年くる日</small></h2>
+      <ul class="items" id="an"></ul>
+      <div class="form">
+        <input type="text" id="anName" placeholder="例：母の誕生日、結婚記念日" maxlength="30">
+        <select id="anM"></select><select id="anD"></select>
+        <input type="number" id="anY" placeholder="年（任意）" min="1900" max="2100" style="width:7em" inputmode="numeric">
+        <button class="btn main" id="anAdd">追加</button>
+      </div>
+      <p class="small" style="margin:6px 0 0">年を入れると「〇歳」「〇周年」も出ます。</p>
+    </div>
+
+    <div class="card">
+      <h2>連絡リマインダー <small>しばらく話していない人</small></h2>
+      <ul class="items" id="ct"></ul>
+      <div class="form">
+        <input type="text" id="ctName" placeholder="例：実家、〇〇さん" maxlength="20">
+        <select id="ctEvery"><option value="7">1週間ごと</option><option value="14">2週間ごと</option><option value="30" selected>1か月ごと</option><option value="60">2か月ごと</option><option value="90">3か月ごと</option><option value="180">半年ごと</option></select>
+        <button class="btn main" id="ctAdd">追加</button>
+      </div>
+      <p class="small" style="margin:6px 0 0">連絡したら「連絡した」を押すと、次の目安日が先に延びます。</p>
+    </div>
+
+<section class="pbox card wide" id="pushBox"><h2>通知</h2><p id="pushState"></p><div class="prow"><label>知らせる時刻 <select id="pushTime"><option value="360">6:00</option><option value="390">6:30</option><option value="420" selected>7:00</option><option value="450">7:30</option><option value="480">8:00</option><option value="540">9:00</option></select></label></div><div class="prow"><button class="pbtn main" id="pushOn">通知をオンにする</button><button class="pbtn" id="pushTest">テスト通知</button><button class="pbtn" id="pushOff">オフにする</button></div><p class="pmsg" id="pushMsg"></p><div class="pios hide" id="pushIos"><b>iPhone・iPad の場合</b>：Safari の共有ボタン（□に↑）→「ホーム画面に追加」で追加し、ホーム画面のアイコンから開くと通知をオンにできます（iOS 16.4 以降）。</div></section>
+    <div class="card wide">
+      <h2>バックアップ</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button class="btn sm" id="exportBtn">バックアップを保存</button>
+        <label class="btn sm" style="margin:0">バックアップから戻す<input type="file" id="importFile" accept="application/json" class="hide"></label>
+        <span class="msg" id="bkMsg"></span>
+      </div>
+      <p class="small">データはこの端末のブラウザの中だけに保存され、どこにも送信しません。機種変更のときはバックアップを使ってください。</p>
+    </div>
+  </div>
+
+  <section class="read">
+    <h2 style="margin-top:14px">よくある質問</h2>
+    <dl class="faq">
+      <dt>なぜ「3つ」だけなの？</dt>
+      <dd>やることを全部並べると、どれから手をつけるか迷って疲れてしまいます。今日かならず終わらせたいことを3つに絞ると、終わったときの達成感も大きく、毎日続けやすくなります。</dd>
+      <dt>終わらなかったことはどうなりますか？</dt>
+      <dd>翌日に開くと「昨日の残り」が表示され、ボタン1つで今日の3つに持ち越せます。</dd>
+      <dt>誕生日の「あと何日」は毎年続きますか？</dt>
+      <dd>はい。記念日・誕生日は毎年くる日として登録され、過ぎると自動で来年までの日数に変わります。生まれ年や始まった年を入れると年齢や「〇周年」も表示します。</dd>
+      <dt>データはどこに保存されますか？</dt>
+      <dd>この端末のブラウザの中だけです。ブラウザのデータを消すと消えるため、ときどきバックアップを保存してください。</dd>
+    </dl>
+  </section>
+</main>
+
+<footer><a href="https://hibitool.com/">日々のツール（hibitool.com）</a> ・ <a href="https://hibitool.com/privacy.html">プライバシーポリシー</a></footer>
+
+<script>
+const KEY="dandori-data";
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,"0");
+const ymd=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const parse=s=>{const[a,b,c]=s.split("-").map(Number);return new Date(a,b-1,c);};
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
+const diff=(a,b)=>Math.round((b-a)/864e5);
+const WD="日月火水木金土";
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const today=()=>{const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate());};
+const md=d=>(d.getMonth()+1)+"/"+d.getDate()+"（"+WD[d.getDay()]+"）";
+
+let S={days:{},count:[],anniv:[],contacts:[],carryDone:{}};
+try{const v=JSON.parse(localStorage.getItem(KEY)||"null");if(v) S=Object.assign(S,v);}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){} if(window.pushSync) pushSync();}
+
+/* 今日の3つ */
+function dayOf(k){ return S.days[k]||(S.days[k]={t:["","",""],d:[false,false,false]}); }
+function renderThree(){
+  const t=today(), k=ymd(t), D=S.days[k]||{t:["","",""],d:[false,false,false]};
+  $("three").innerHTML=[0,1,2].map(i=>'<li class="'+(D.d[i]?"done":"")+'"><input type="text" data-i="'+i+'" value="'+esc(D.t[i])+'" placeholder="'+["いちばん大事なこと","2つ目","3つ目"][i]+'" maxlength="40"><input type="checkbox" data-c="'+i+'"'+(D.d[i]?" checked":"")+' aria-label="できた"></li>').join("");
+  // 昨日（以前で最後に書いた日）の残り
+  const prevKey=Object.keys(S.days).filter(x=>x<k).sort().pop();
+  let h="";
+  if(prevKey && !S.carryDone[k]){
+    const P=S.days[prevKey]; const rest=P.t.map((x,i)=>[x,P.d[i]]).filter(([x,d])=>x&&!d).map(([x])=>x);
+    const free=D.t.filter(x=>!x).length;
+    if(rest.length&&free) h='<div class="carry">'+(diff(parse(prevKey),t)===1?"昨日":md(parse(prevKey)))+'の残り：'+rest.map(esc).join("・")+' <button class="btn sm" id="carryBtn">今日に持ち越す</button> <button class="btn link" id="carryNo">持ち越さない</button></div>';
+  }
+  const filled=D.t.filter(Boolean).length, done=D.t.filter((x,i)=>x&&D.d[i]).length;
+  if(filled&&done===filled) h+='<div class="allDone">今日の分はぜんぶ終わりました。おつかれさまでした！</div>';
+  $("carry").innerHTML=h;
+  if($("carryBtn")) $("carryBtn").onclick=()=>{
+    const P=S.days[prevKey], d=dayOf(k); const rest=P.t.filter((x,i)=>x&&!P.d[i]);
+    for(const x of rest){const j=d.t.indexOf("");if(j<0)break;d.t[j]=x;d.d[j]=false;}
+    S.carryDone[k]=1; save(); renderAll();
+  };
+  if($("carryNo")) $("carryNo").onclick=()=>{S.carryDone[k]=1;save();renderAll();};
+}
+$("three").addEventListener("input",e=>{const el=e.target;if(el.dataset.i==null)return;dayOf(ymd(today())).t[+el.dataset.i]=el.value;save();renderSummary();});
+$("three").addEventListener("change",e=>{const el=e.target;if(el.dataset.c==null)return;const d=dayOf(ymd(today()));d.d[+el.dataset.c]=el.checked;save();renderThree();renderSummary();});
+
+/* カウントダウン */
+function renderCount(){
+  const t=today();
+  S.count=S.count.filter(x=>diff(t,parse(x.date))>=-3);   // 過ぎて3日たったら消す
+  const list=[...S.count].sort((a,b)=>a.date.localeCompare(b.date));
+  $("cd").innerHTML=list.length?list.map(x=>{const n=diff(t,parse(x.date));
+    return '<li><span class="left '+(n<=0?"today":n<=7?"soon":"")+'">'+(n===0?"今日":n<0?"済み":"あと"+n+"日")+'</span><span>'+esc(x.name)+'<span class="sub">'+md(parse(x.date))+'</span></span><button class="btn link" data-rmc="'+x.id+'">削除</button></li>';}).join(""):'<li><span class="empty">試験・旅行・提出日などを入れると、あと何日かを表示します。</span></li>';
+}
+$("cdAdd").onclick=()=>{const n=$("cdName").value.trim(),d=$("cdDate").value;if(!n||!d){(n?$("cdDate"):$("cdName")).focus();return;}S.count.push({id:uid(),name:n,date:d});save();$("cdName").value="";$("cdDate").value="";renderAll();};
+
+/* 記念日 */
+$("anM").innerHTML=Array.from({length:12},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'月</option>').join("");
+$("anD").innerHTML=Array.from({length:31},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'日</option>').join("");
+function nextAnniv(x,t){
+  let y=t.getFullYear();
+  const mk=yy=>{const last=new Date(yy,x.m,0).getDate();return new Date(yy,x.m-1,Math.min(x.d,last));};  // 2/29 は平年は2/28
+  let d=mk(y); if(d<t){y++;d=mk(y);}
+  return d;
+}
+function renderAnniv(){
+  const t=today();
+  const list=S.anniv.map(x=>({x,d:nextAnniv(x,t)})).sort((a,b)=>a.d-b.d);
+  $("an").innerHTML=list.length?list.map(({x,d})=>{const n=diff(t,d);
+    const years=x.y?d.getFullYear()-x.y:null;
+    const note=years!=null&&years>0?(/誕生|生まれ/.test(x.name)?years+"歳になります":years+"周年"):"";
+    return '<li><span class="left '+(n===0?"today":n<=7?"soon":"")+'">'+(n===0?"今日":"あと"+n+"日")+'</span><span>'+esc(x.name)+'<span class="sub">'+md(d)+(note?"・"+note:"")+'</span></span><button class="btn link" data-rma="'+x.id+'">削除</button></li>';}).join(""):'<li><span class="empty">家族や友人の誕生日、記念日を入れておくと、近づいたら上に出てきます。</span></li>';
+}
+$("anAdd").onclick=()=>{const n=$("anName").value.trim();if(!n){$("anName").focus();return;}const y=+$("anY").value||null;S.anniv.push({id:uid(),name:n,m:+$("anM").value,d:+$("anD").value,y:(y&&y>1900&&y<2100)?y:null});save();$("anName").value="";$("anY").value="";renderAll();};
+
+/* 連絡リマインダー */
+function renderContacts(){
+  const t=today();
+  const list=S.contacts.map(x=>{const last=parse(x.last);const due=addDays(last,x.every);return {x,last,due,n:diff(t,due),ago:diff(last,t)};}).sort((a,b)=>a.due-b.due);
+  $("ct").innerHTML=list.length?list.map(({x,n,ago})=>
+    '<li><span class="left '+(n<=0?"today":n<=3?"soon":"")+'">'+(n<=0?"そろそろ":"あと"+n+"日")+'</span><span>'+esc(x.name)+'<span class="sub">最後の連絡から'+ago+'日</span></span><span><button class="btn sm" data-did="'+x.id+'">連絡した</button> <button class="btn link" data-rmp="'+x.id+'">削除</button></span></li>').join(""):'<li><span class="empty">実家・友人など、ときどき連絡したい人を入れておくと、間があいたら知らせます。</span></li>';
+}
+$("ctAdd").onclick=()=>{const n=$("ctName").value.trim();if(!n){$("ctName").focus();return;}S.contacts.push({id:uid(),name:n,every:+$("ctEvery").value,last:ymd(today())});save();$("ctName").value="";renderAll();};
+
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-rmc],[data-rma],[data-rmp],[data-did]"); if(!b) return;
+  if(b.dataset.rmc) S.count=S.count.filter(x=>x.id!==b.dataset.rmc);
+  if(b.dataset.rma) S.anniv=S.anniv.filter(x=>x.id!==b.dataset.rma);
+  if(b.dataset.rmp) S.contacts=S.contacts.filter(x=>x.id!==b.dataset.rmp);
+  if(b.dataset.did){const c=S.contacts.find(x=>x.id===b.dataset.did);if(c)c.last=ymd(today());}
+  save(); renderAll();
+});
+
+/* まとめ */
+function renderSummary(){
+  const t=today(), D=S.days[ymd(t)]||{t:[],d:[]};
+  const filled=D.t.filter(Boolean).length, done=D.t.filter((x,i)=>x&&D.d[i]).length;
+  const parts=[];
+  parts.push(filled?'今日の3つ <b>'+done+'/'+filled+'</b>':'今日の3つを決めましょう');
+  const cd=[...S.count].map(x=>({x,n:diff(t,parse(x.date))})).filter(o=>o.n>=0).sort((a,b)=>a.n-b.n)[0];
+  if(cd) parts.push(esc(cd.x.name)+'まで <b>'+(cd.n?'あと'+cd.n+'日':'今日')+'</b>');
+  const an=S.anniv.map(x=>({x,n:diff(t,nextAnniv(x,t))})).sort((a,b)=>a.n-b.n)[0];
+  if(an&&an.n<=30) parts.push(esc(an.x.name)+' <b>'+(an.n?'あと'+an.n+'日':'今日')+'</b>');
+  const due=S.contacts.filter(x=>diff(t,addDays(parse(x.last),x.every))<=0);
+  if(due.length) parts.push('連絡のめやす：<b>'+due.map(x=>esc(x.name)).join("・")+'</b>');
+  $("summary").innerHTML=parts.map(p=>'<span>'+p+'</span>').join("");
+}
+function renderAll(){
+  const t=today(); $("today").textContent=(t.getMonth()+1)+"月"+t.getDate()+"日（"+WD[t.getDay()]+"）";
+  // 古い日の3つは90日で消す
+  const lim=ymd(addDays(t,-90)); Object.keys(S.days).forEach(k=>{if(k<lim) delete S.days[k];}); Object.keys(S.carryDone).forEach(k=>{if(k<lim) delete S.carryDone[k];});
+  renderThree(); renderCount(); renderAnniv(); renderContacts(); renderSummary();
+}
+
+/* バックアップ */
+$("exportBtn").onclick=()=>{const b=new Blob([JSON.stringify({app:"dandori",v:1,data:S},null,1)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="dandori-backup-"+ymd(today())+".json";document.body.appendChild(a);a.click();a.remove();$("bkMsg").textContent="保存しました";};
+$("importFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const j=JSON.parse(await f.text());if(j.app!=="dandori"||!j.data)throw 0;S=Object.assign({days:{},count:[],anniv:[],contacts:[],carryDone:{}},j.data);save();renderAll();$("bkMsg").textContent="戻しました";}catch(_){$("bkMsg").textContent="このファイルは読み込めませんでした";}e.target.value="";};
+
+renderAll();
+setInterval(()=>{const k=ymd(new Date());if(k!==renderAll.k){renderAll.k=k;renderAll();}},60000);
+renderAll.k=ymd(new Date());
+
+/* 通知の設定（共通部品 push-client.js が使う） */
+const PUSH_APP="dandori";
+try{const v=localStorage.getItem("dandori-push-time");if(v&&[...$("pushTime").options].some(o=>o.value===v))$("pushTime").value=v;}catch(e){}
+function pushPayload(){const m=+$("pushTime").value;return {minute:m,settings:{minute:m,count:S.count.map(x=>({name:x.name,date:x.date})),anniv:S.anniv.map(x=>({name:x.name,m:x.m,d:x.d})),contacts:S.contacts.map(x=>({name:x.name,every:x.every,last:x.last}))}};}
+function pushDesc(){const m=+$("pushTime").value;return "毎朝 "+Math.floor(m/60)+":"+pad(m%60)+" に「資格試験まであと19日／母の誕生日まであと8日／実家に連絡を」のように、今日の段取りをまとめてお知らせします。";}
+function pushReady(){return "";}
+$("pushTime").onchange=()=>{try{localStorage.setItem("dandori-push-time",$("pushTime").value);}catch(e){}pushSync();};
+</script>
+<script src="push-client.js"></script>
+</body>
+</html>
